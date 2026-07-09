@@ -1,108 +1,107 @@
-# homework-week1
-# GitHub Repository File Scanner
+# GitHub Repository Analyzer Skills
 
-## Description
+This project contains custom **Gemini CLI Skills** for analyzing GitHub repositories.
 
-This project is a simple Command Line Interface (CLI) application written in Python.
+The skills allow Gemini CLI to retrieve repository information through the **GitHub REST API** and generate a technical analysis of the project.
 
-The application connects to the GitHub API using a Personal Access Token (PAT), retrieves the structure of a GitHub repository, and prints the list of all files in the repository.
+---
 
 ## Features
 
-- Connects to GitHub via REST API
-- Uses GitHub Personal Access Token for authentication
-- Automatically detects the repository's default branch
-- Recursively retrieves all files from the repository
-- Prints the file list to the console
-- Handles common API errors
+### GitHub Repository Reader
 
-## Requirements
+This skill is responsible for:
 
-- Python 3.10+
-- requests library
-- GitHub Personal Access Token (PAT)
+- connecting to a GitHub repository;
+- retrieving repository metadata;
+- determining the default branch;
+- reading the repository structure;
+- listing repository files;
+- retrieving file contents when necessary.
 
-## Installation
+The repository is accessed through the **GitHub REST API** without cloning it locally.
 
-Clone the repository:
+---
 
-```bash
-git clone https://github.com/your-username/homework-week1.git
-```
+### Repository Analyzer
 
-Navigate to the project folder:
+This skill analyzes the retrieved repository information and generates:
 
-```bash
-cd homework-week1
-```
+- project summary;
+- technologies used;
+- project structure;
+- strengths;
+- potential issues;
+- recommendations for improvement.
 
-Install dependencies:
+The analysis is based only on the available repository context.
 
-```bash
-pip install requests
-```
-
-## Configuration
-
-Create an environment variable named `GITHUB_TOKEN` and set it to your GitHub Personal Access Token.
-
-Example (Windows CMD):
-
-```cmd
-set GITHUB_TOKEN=your_personal_access_token
-```
-
-## Usage
-
-Run the application:
-
-```bash
-python main.py <owner/repository>
-```
-
-Example:
-
-```bash
-python main.py octocat/Hello-World
-```
-
-or
-
-```bash
-python main.py psf/requests
-```
-
-## Example Output
-
-```
-Repository: psf/requests
-Branch: main
-
-Files:
-
-README.md
-LICENSE
-setup.py
-requests/__init__.py
-requests/api.py
-...
-```
+---
 
 ## Project Structure
 
 ```
-homework-week1/
-│
-├── main.py
-├── README.md
-└── .gitignore
+.
+├── .gemini
+│   └── skills
+│       ├── github-repository-reader
+│       │   └── SKILL.md
+│       └── repository-analyzer
+│           └── SKILL.md
+├── .gitignore
+└── README.md
 ```
+
+---
+
+## Installation
+
+1. Install Node.js.
+
+2. Install Gemini CLI.
+
+3. Clone the repository:
+
+```bash
+git clone https://github.com/khrystya-s/homework-week1.git
+```
+
+4. Open the project directory.
+
+---
+
+## Usage
+
+Start Gemini CLI inside the project directory.
+
+Example prompts:
+
+```
+Analyze this repository:
+https://github.com/octocat/Hello-World
+```
+
+```
+Analyze this repository:
+https://github.com/psf/requests
+```
+
+```
+Analyze this repository:
+https://github.com/khrystya-s/rgr-os
+```
+
+Gemini automatically activates the appropriate skills and performs repository analysis.
+
+---
 
 ## Technologies
 
-- Python
+- Gemini CLI
 - GitHub REST API
-- Requests
+- Markdown
+
+---
 
 ## Author
 
